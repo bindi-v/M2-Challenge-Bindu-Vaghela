@@ -1,14 +1,21 @@
 package com.company.monthandmathservice.model;
 
-import java.util.List;
+
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class MathSolution {
-
+    @NotNull(message = "Enter an Integer for operand1.")
     private Integer operand1;
+    @NotNull(message = "Enter an Integer for operand2.")
     private Integer operand2;
-    private List operation;
+    private String operation;
     private Integer answer;
+
+    public MathSolution(int operand1, int operand2) {
+        this.operand1 = operand1;
+        this.operand2 = operand2;
+    }
 
     public Integer getOperand1() {
         return operand1;
@@ -26,11 +33,11 @@ public class MathSolution {
         this.operand2 = operand2;
     }
 
-    public List getOperation() {
+    public String getOperation() {
         return operation;
     }
 
-    public void setOperation(List operation) {
+    public void setOperation(String operation) {
         this.operation = operation;
     }
 
@@ -60,7 +67,7 @@ public class MathSolution {
         return "MathSolution{" +
                 "operand1=" + operand1 +
                 ", operand2=" + operand2 +
-                ", operation=" + operation +
+                ", operation='" + operation + '\'' +
                 ", answer=" + answer +
                 '}';
     }

@@ -7,6 +7,11 @@ public class Month {
     private Integer number;
     private String name;
 
+    public Month(int number, String name) {
+        this.number = number;
+        this.name = name;
+    }
+
     public Integer getNumber() {
         return number;
     }
@@ -34,5 +39,13 @@ public class Month {
     @Override
     public int hashCode() {
         return Objects.hash(number, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Month{" +
+                "number=" + number +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

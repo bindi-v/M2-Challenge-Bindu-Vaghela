@@ -54,4 +54,14 @@ public class MathSolution {
     public int hashCode() {
         return Objects.hash(operand1, operand2, operation, answer);
     }
+
+    @Override
+    public String toString() {
+        return "MathSolution{" +
+                "operand1=" + operand1 +
+                ", operand2=" + operand2 +
+                ", operation=" + operation +
+                ", answer=" + answer +
+                '}';
+    }
 }

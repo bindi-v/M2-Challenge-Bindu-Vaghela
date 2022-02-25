@@ -2,7 +2,6 @@ package com.company.monthandmathservice.controller;
 
 import com.company.monthandmathservice.model.MathSolution;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -39,6 +38,30 @@ public class MathSolutionController {
         return mathSolution;
 
         // return "This is Subtract End Point.";
+
+    }
+
+    @RequestMapping(value = "/multiply", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public MathSolution getMultiplicationOfTwoNum(@RequestBody MathSolution mathSolution) {
+
+        mathSolution.setAnswer(mathSolution.getOperand1() * mathSolution.getOperand2());
+        mathSolution.setOperation("Multiply");
+        return mathSolution;
+
+        // return "This is Multiply End Point.";
+
+    }
+
+    @RequestMapping(value = "/divide", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public MathSolution getDivisionOfTwoNum(@RequestBody MathSolution mathSolution) {
+
+        mathSolution.setAnswer(mathSolution.getOperand1() / mathSolution.getOperand2());
+        mathSolution.setOperation("Divide");
+        return mathSolution;
+
+        // return "This is Divide End Point.";
 
     }
 

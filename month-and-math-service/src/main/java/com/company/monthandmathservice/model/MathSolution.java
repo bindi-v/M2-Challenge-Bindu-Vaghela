@@ -1,16 +1,21 @@
 package com.company.monthandmathservice.model;
 
 
+
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class MathSolution {
-    @NotNull(message = "Enter an Integer for operand1.")
+
+    @NotNull
     private Integer operand1;
-    @NotNull(message = "Enter an Integer for operand2.")
+    @NotNull
     private Integer operand2;
     private String operation;
     private Integer answer;
+
+    public MathSolution() {
+    }
 
     public MathSolution(int operand1, int operand2) {
         this.operand1 = operand1;

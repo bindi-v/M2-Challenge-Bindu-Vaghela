@@ -15,8 +15,8 @@ public class MathSolutionController {
     @ResponseStatus(HttpStatus.CREATED)
     public MathSolution getSumOfTwoNum(@RequestBody @Valid MathSolution mathSolution) {
 
-        mathSolution.getOperand1().intValue();
-        mathSolution.getOperand2().intValue();
+       // mathSolution.getOperand1().intValue();
+      //  mathSolution.getOperand2().intValue();
         if(mathSolution.getOperand1() == null || mathSolution.getOperand2() == null) {
 
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Invalid input!! ");

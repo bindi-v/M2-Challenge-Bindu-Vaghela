@@ -54,7 +54,7 @@ public class MonthConverterControllerTest {
     }
 
     @Test
-    public void shouldReturn422WhenGiveOutOfRangeMonthNumber() throws Exception {
+    public void shouldReturn422ForOutOfRangeMonthNumber() throws Exception {
 
         mockMvc.perform(get("/month/16"))
                 .andDo(print())

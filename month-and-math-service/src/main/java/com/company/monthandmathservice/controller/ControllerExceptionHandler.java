@@ -4,6 +4,7 @@ import com.company.monthandmathservice.exception.NotFoundException;
 import com.company.monthandmathservice.model.CustomErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -74,9 +75,9 @@ public class ControllerExceptionHandler   {
         return responseEntity;
     }
 
-    @ExceptionHandler(value = NumberFormatException.class)
+    @ExceptionHandler(value = HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    public ResponseEntity<CustomErrorResponse> outOfRangeException(NumberFormatException e) {
+    public ResponseEntity<CustomErrorResponse> outOfRangeException(HttpMessageNotReadableException e) {
         CustomErrorResponse error = new CustomErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.toString(), e.getMessage());
         error.setStatus((HttpStatus.UNPROCESSABLE_ENTITY.value()));
         error.setTimestamp(LocalDateTime.now());

@@ -12,6 +12,10 @@ public class Month {
         this.name = name;
     }
 
+    public Month() {
+
+    }
+
     public Integer getNumber() {
         return number;
     }

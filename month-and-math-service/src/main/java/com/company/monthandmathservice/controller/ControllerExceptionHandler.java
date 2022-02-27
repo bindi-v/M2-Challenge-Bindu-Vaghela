@@ -77,7 +77,7 @@ public class ControllerExceptionHandler   {
 
     @ExceptionHandler(value = HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    public ResponseEntity<CustomErrorResponse> outOfRangeException(HttpMessageNotReadableException e) {
+    public ResponseEntity<CustomErrorResponse> notIntegerException(HttpMessageNotReadableException e) {
         CustomErrorResponse error = new CustomErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.toString(), e.getMessage());
         error.setStatus((HttpStatus.UNPROCESSABLE_ENTITY.value()));
         error.setTimestamp(LocalDateTime.now());

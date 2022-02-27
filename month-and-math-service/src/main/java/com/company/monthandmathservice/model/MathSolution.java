@@ -1,6 +1,7 @@
 package com.company.monthandmathservice.model;
 
 
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.validation.constraints.NotNull;
 import java.util.Objects;

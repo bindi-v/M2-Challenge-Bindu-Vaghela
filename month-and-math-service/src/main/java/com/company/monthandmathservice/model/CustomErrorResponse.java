@@ -6,11 +6,11 @@ import java.time.LocalDateTime;
 
 public class CustomErrorResponse {
 
-    String errorMsg;
-    int status;
-    String errorCode;
+    private String errorMsg;
+    private int status;
+    private String errorCode;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
-    LocalDateTime timestamp;
+    private LocalDateTime timestamp;
 
     public CustomErrorResponse() {
 

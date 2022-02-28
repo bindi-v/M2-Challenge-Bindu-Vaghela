@@ -15,7 +15,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(MonthConverterController.class)
@@ -40,8 +39,6 @@ public class MonthConverterControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().json(outputJson));
-               // .andExpect(MockMvcResultMatchers.jsonPath("$.number").value(1))
-               // .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("January"));
     }
 
     @Test

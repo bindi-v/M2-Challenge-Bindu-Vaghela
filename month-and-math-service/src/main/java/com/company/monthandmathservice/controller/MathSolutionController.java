@@ -11,29 +11,27 @@ import javax.validation.Valid;
 @RestController
 public class MathSolutionController {
 
+    // This is Add End Point
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public MathSolution getSumOfTwoNum(@RequestBody @Valid MathSolution mathSolution) {
 
-       // mathSolution.getOperand1().intValue();
-      //  mathSolution.getOperand2().intValue();
         if(mathSolution.getOperand1() == null || mathSolution.getOperand2() == null) {
 
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Invalid input!! ");
 
         }
-//        if(mathSolution.getOperand1().intValue() != int  mathSolution.getOperand2().intValue()){
+
             mathSolution.setAnswer(mathSolution.getOperand1() + mathSolution.getOperand2());
 
             mathSolution.setOperation("Add");
-//        } else {
-//            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Invalid Input!!")
-//        }
+
         return mathSolution;
 
-       // return "This is Add End Point.";
-
     }
+
+    // This is Subtract End Point
 
     @RequestMapping(value = "/subtract", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
@@ -48,9 +46,9 @@ public class MathSolutionController {
         mathSolution.setOperation("Subtract");
         return mathSolution;
 
-        // return "This is Subtract End Point.";
-
     }
+
+    // This is Multiply End Point
 
     @RequestMapping(value = "/multiply", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
@@ -65,9 +63,9 @@ public class MathSolutionController {
         mathSolution.setOperation("Multiply");
         return mathSolution;
 
-        // return "This is Multiply End Point.";
-
     }
+
+    // This is Divide End Point
 
     @RequestMapping(value = "/divide", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
@@ -81,8 +79,6 @@ public class MathSolutionController {
         mathSolution.setAnswer(mathSolution.getOperand1() / mathSolution.getOperand2());
         mathSolution.setOperation("Divide");
         return mathSolution;
-
-        // return "This is Divide End Point.";
 
     }
 

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -85,6 +86,15 @@ public class ControllerExceptionHandler   {
         return responseEntity;
     }
 
+    @ExceptionHandler(value = HttpRequestMethodNotSupportedException.class)
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    public ResponseEntity<CustomErrorResponse> methodNotSupportedException(HttpRequestMethodNotSupportedException e) {
+        CustomErrorResponse error = new CustomErrorResponse(HttpStatus.METHOD_NOT_ALLOWED.toString(), e.getMessage());
+        error.setStatus((HttpStatus.METHOD_NOT_ALLOWED.value()));
+        error.setTimestamp(LocalDateTime.now());
+        ResponseEntity<CustomErrorResponse> responseEntity = new ResponseEntity<>(error, HttpStatus.METHOD_NOT_ALLOWED);
+        return responseEntity;
+    }
 
 
 }
